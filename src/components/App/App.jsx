@@ -1,6 +1,6 @@
 import { Routes } from 'react-router-dom';
 
-function App() {
+function App () {
   return (
     <div className='app'>
       <Routes>
