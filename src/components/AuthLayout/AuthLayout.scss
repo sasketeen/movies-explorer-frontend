@@ -1,0 +1,55 @@
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 396px;
+  width: 100%;
+  max-height: 560px;
+  height: 100%;
+}
+
+.auth-layout {
+  box-sizing: border-box;
+  display: flex;
+  padding: 30px;
+  height: 100dvh;
+
+  &__title {
+    margin: 40px 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__sublink-paragraph {
+    margin: 16px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: var(--color-addition-gray1);
+  }
+
+  @media screen and (max-width: 420px) {
+    &__logo-wrapper {
+      margin: auto;
+    }
+    &__title {
+      margin: 50px 0 80px;
+      text-align: center;
+    }
+    &__sublink-paragraph{
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
+
+

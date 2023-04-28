@@ -1,0 +1,23 @@
+.body{
+  background-color: var(--color-main-grey);
+  color: var(--color-main-white);
+  font-family: 'Inter', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+}
+
+.link {
+  color: var(--color-main-brightBlue);
+  text-decoration: none;
+  transition: opacity .3s ease-out;
+  border-radius: 3px;
+
+  &:hover {
+    opacity: .7;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-main-brightBlue);
+  }
+}
