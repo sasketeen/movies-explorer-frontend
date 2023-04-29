@@ -1,6 +1,7 @@
 import MyInput from '../Input/MyInput';
 import './InputGroup.scss';
-export default function InputGroup ({ inputId, label, error = '434', ...props }) {
+
+export default function InputGroup ({ inputId, label, error, ...props }) {
   return (
     <>
       {label && <label htmlFor="inputId" className='input-label'>{label}</label>}
