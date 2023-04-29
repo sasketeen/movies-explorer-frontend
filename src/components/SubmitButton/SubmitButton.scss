@@ -1,0 +1,35 @@
+.submit-button {
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-main-brightBlue);
+
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-main-white);
+
+  transition: opacity .3s ease-out;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-main-white);
+  }
+
+  &:disabled {
+    background-color: var(--color-addition-lightGray4);
+    color: var(--color-addition-gray4);
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
