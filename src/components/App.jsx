@@ -5,11 +5,11 @@ import MainPage from '../pages/MainPage/MainPage';
 
 function App () {
   return (
-    <div className='app'>
+    <div className="app">
       <Routes>
-        <Route path='/signin' Component={SignIn}/>
-        <Route path='/signup' Component={SignUp}/>
-        <Route path='/' Component={MainPage}/>
+        <Route path="/signin" Component={SignIn} />
+        <Route path="/signup" Component={SignUp} />
+        <Route path="/" Component={MainPage} />
       </Routes>
     </div>
   );

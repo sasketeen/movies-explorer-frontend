@@ -1,4 +1,4 @@
-@use '@/assets/css/mixins' as mixin;
+@use "@/assets/css/mixins" as mixin;
 
 .submit-button {
   @include mixin.hover(0.8);

@@ -1,4 +1,4 @@
-@use '@/assets/css/mixins'  as mixin;
+@use "@/assets/css/mixins" as mixin;
 
 .burger-button {
   display: none;
@@ -42,13 +42,13 @@
     &_active::before {
       top: 10px;
       transform: rotate(45deg);
-      box-shadow: 0 6px 0 rgba(0,0,0,0);
-      transition: box-shadow .15s, top .3s, transform .3s .15s;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+      transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
     }
     &_active::after {
       bottom: 10px;
       transform: rotate(-45deg);
-      transition: bottom .3s, transform .3s .15s;
+      transition: bottom 0.3s, transform 0.3s 0.15s;
     }
   }
 
@@ -56,4 +56,3 @@
     outline: 2px solid var(--color-main-white);
   }
 }
-

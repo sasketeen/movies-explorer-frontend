@@ -8,17 +8,27 @@ export default function MainPage () {
     <>
       <MyHeader></MyHeader>
 
-      <section className='intro'>
+      <section className="intro">
         <div className="container intro__container">
           <div>
-            <h1 className='intro__title'>Учебный проект студента факультета Веб&#8209;разработки</h1>
-            <p className='intro__subtitle'>Листайте ниже, чтобы узнать больше про этот проект и его создателя</p>
-            <a href="#about" className='intro__button-link'>Узнать больше</a>
+            <h1 className="intro__title">
+              Учебный проект студента факультета Веб&#8209;разработки
+            </h1>
+            <p className="intro__subtitle">
+              Листайте ниже, чтобы узнать больше про этот проект и его создателя
+            </p>
+            <a href="#about" className="intro__button-link">
+              Узнать больше
+            </a>
           </div>
-          <img src={mainImage} alt="Земной шар составленный из слов Web" className='intro__main-image'/>
+          <img
+            src={mainImage}
+            alt="Земной шар составленный из слов Web"
+            className="intro__main-image"
+          />
         </div>
       </section>
-      <section id='about'></section>
+      <section id="about"></section>
     </>
   );
 }

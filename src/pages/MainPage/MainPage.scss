@@ -1,4 +1,4 @@
-@use '@/assets/css/mixins' as mixin;
+@use "@/assets/css/mixins" as mixin;
 
 .intro {
   padding: 75px 0;
@@ -50,7 +50,7 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
-    opacity: .5;
+    opacity: 0.5;
 
     @media screen and (max-width: 1030px) {
       margin: 22px auto 0;

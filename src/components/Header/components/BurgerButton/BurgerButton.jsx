@@ -5,10 +5,8 @@ export default function BurgerButton ({ isMenuVisible, handleClickBurger }) {
     <button
       tabIndex={1}
       aria-label="Меню"
-      className={`burger-button ${
-        isMenuVisible ? 'burger-button_active' : ''
-      }`}
+      className={`burger-button ${isMenuVisible ? 'burger-button_active' : ''}`}
       onClick={handleClickBurger}
-  />
+    />
   );
 }
