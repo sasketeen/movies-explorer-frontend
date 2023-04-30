@@ -7,6 +7,11 @@
     flex-direction: column;
     align-items: center;
     gap: 28px;
+
+    &__link:focus-visible {
+      outline: none;
+      background-color: var(--color-main-cyan);
+    }
   }
 }
 
@@ -28,7 +33,7 @@
   }
 }
 
-.hidden {
+.nav-links__link_hidden {
   display: none;
 
   @media screen and (max-width: 768px) {

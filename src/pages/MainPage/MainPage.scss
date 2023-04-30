@@ -1,0 +1,100 @@
+@use '@/assets/css/mixins' as mixin;
+
+.intro {
+  padding: 75px 0;
+  background-color: var(--color-main-darkBlue);
+
+  &__container {
+    display: flex;
+    gap: 48px;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1030px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 420px) {
+      gap: 44px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 640px;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+
+    @media screen and (max-width: 1280px) {
+      font-size: calc(40px + 10 * ((100vw - 768px) / (1280 - 768)));
+      line-height: calc(50px + 8 * ((100vw - 768px) / (1280 - 768)));
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: calc(30px + 10 * ((100vw - 420px) / (768 - 420)));
+      line-height: calc(38px + 12 * ((100vw - 420px) / (768 - 420)));
+    }
+
+    @media screen and (max-width: 420px) {
+      font-size: 30px;
+      line-height: 38px;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  &__subtitle {
+    margin: 35px 0 0;
+    max-width: 310px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    opacity: .5;
+
+    @media screen and (max-width: 1030px) {
+      margin: 22px auto 0;
+    }
+  }
+
+  &__button-link {
+    @include mixin.hover();
+
+    display: inline-block;
+    border: 1px solid var(--color-addition-gray1);
+    border-radius: 3px;
+
+    margin-top: 146px;
+    padding: 10px 20px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    color: var(--color-main-white);
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--color-main-white);
+    }
+
+    @media screen and (max-width: 1030px) {
+      margin-top: 92px;
+    }
+
+    @media screen and (max-width: 420px) {
+      margin-top: 80px;
+    }
+  }
+
+  &__main-image {
+    max-height: 304px;
+    max-width: 310px;
+    width: 100%;
+
+    @media screen and (max-width: 420px) {
+      // max-height: 304px;
+      max-width: 210px;
+    }
+  }
+}
