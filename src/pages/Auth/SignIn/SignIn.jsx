@@ -1,5 +1,5 @@
-import AuthLayout from '../../../components/AuthLayout/AuthLayout';
-import InputGroup from '../../../components/InputGroup/InputGroup';
+import AuthLayout from '@c/AuthLayout/AuthLayout';
+import InputGroup from '@c/InputGroup/InputGroup';
 
 export default function SignIn () {
   return (

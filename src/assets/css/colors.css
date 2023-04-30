@@ -1,10 +1,10 @@
 :root {
-  --color-main-black: #000000;
+  --color-main-black: #000000; /*1*/
   --color-main-grey: #202020; /*1*/
-  --color-main-white: #FFFFFF;
-  --color-main-darkBlue: #073042;
+  --color-main-white: #FFFFFF; /*1*/
+  --color-main-darkBlue: #073042; /*1*/
   --color-main-brightBlue: #4285F4; /*1*/
-  --color-main-cyan: #3DDC84;
+  --color-main-cyan: #3DDC84; /*1*/
   --color-main-brightPink: #EE3465; /*1*/
 
   --color-addition-lightGray1: #D9D9D9;
@@ -20,7 +20,7 @@
   --color-addition-darkGray6: #424242; /*1*/
 
   --color-addition-gray1: #8B8B8B;
-  --color-addition-gray2: #AAAAAA;
+  --color-addition-gray2: #AAAAAA; /*1*/
   --color-addition-gray3: #A0A0A0;
   --color-addition-gray4: #C2C2C2;
 

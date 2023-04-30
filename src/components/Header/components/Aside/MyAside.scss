@@ -1,0 +1,20 @@
+.aside {
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    left: unset;
+
+    box-sizing: border-box;;
+    padding: 144px 10px 46px;
+    max-width: 520px;
+    width: 100%;
+    background-color: var(--color-main-grey);
+    transition: right 0.4s linear;
+  }
+
+  &_open {
+    right: 0;
+  }
+}

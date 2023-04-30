@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+
 import LogoLink from '../LogoLink/LogoLink';
 import SubmitButton from '../SubmitButton/SubmitButton';
+
 import './AuthLayout.scss';
 
 export default function AuthLayout ({

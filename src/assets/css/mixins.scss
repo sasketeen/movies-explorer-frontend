@@ -1,0 +1,8 @@
+@mixin hover($value: 0.7) {
+  @media (hover: hover) {
+    transition: opacity .3s ease-out;
+    &:hover {
+      opacity: $value;
+    }
+  }
+}
