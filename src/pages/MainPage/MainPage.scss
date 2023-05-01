@@ -266,3 +266,111 @@
     }
   }
 }
+
+.technologies {
+  background-color: var(--color-addition-darkGray2);
+
+  @media screen and (max-width: 420px) {
+    background-color: unset;
+  }
+
+  &__subtitle {
+    margin: 80px 0 0;
+
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+
+    @media screen and (max-width: 768px) {
+      font-size: calc(30px + 20 * ((100vw - 420px) / (768 - 420)));
+      line-height: calc(36px + 22 * ((100vw - 420px) / (768 - 420)));
+    }
+
+    @media screen and (max-width: 420px) {
+      margin-top: 60px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+
+  &__paragraph {
+    margin: 26px auto 0;
+    max-width: 460px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    @media screen and (max-width: 1280px) {
+      font-size: calc(12px + 2 * ((100vw - 768px) / (1280 - 768)));
+      line-height: calc(18px + 2 * ((100vw - 768px) / (1280 - 768)));
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 22px;
+      font-size: calc(11px + 1 * ((100vw - 420px) / (768 - 420)));
+      line-height: calc(16px + 2 * ((100vw - 420px) / (768 - 420)));
+    }
+
+    @media screen and (max-width: 420px) {
+      margin-top: 24px;
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin: 90px 0 0;
+    padding: 0;
+    list-style: none;
+
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    @media screen and (max-width: 1280px) {
+      font-size: calc(12px + 2 * ((100vw - 768px) / (1280 - 768)));
+      line-height: calc(15px + 2 * ((100vw - 768px) / (1280 - 768)));
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 83px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    @media screen and (max-width: 420px) {
+      max-width: 178px;
+      justify-content: flex-start;
+      margin: 50px auto 0;
+    }
+  }
+
+  &__list-item {
+    padding: 21px 0;
+    min-width: 90px;
+    border-radius: 10px;
+    background-color: var(--color-addition-darkGray5);
+
+    @media screen and (max-width: 1280px) {
+      min-width: calc(84px + 6 * ((100vw - 768px) / (1280 - 768)));
+    }
+
+    @media screen and (max-width: 768px) {
+      min-width: 84px;
+    }
+  }
+}
