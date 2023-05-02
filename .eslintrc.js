@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'no-unused-vars': 1
   }
 };

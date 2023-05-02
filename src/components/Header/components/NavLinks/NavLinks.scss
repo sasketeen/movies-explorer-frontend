@@ -1,0 +1,42 @@
+.nav-links {
+  display: flex;
+  gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+
+    &__link:focus-visible {
+      outline: none;
+      background-color: var(--color-main-cyan);
+    }
+  }
+}
+
+.active {
+  font-weight: 500;
+
+  @media screen and (max-width: 768px) {
+    font-weight: unset;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-main-white);
+    }
+  }
+}
+
+.nav-links__link_hidden {
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: unset;
+  }
+}
