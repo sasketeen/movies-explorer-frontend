@@ -4,6 +4,7 @@ import './MainPage.scss';
 import mainImage from '@/assets/images/mainpage-pic.svg';
 import myPhoto from '@/assets/images/my-photo.jpg';
 import { useRef } from 'react';
+import MyFooter from '../../components/Footer/MyFooter';
 
 export default function MainPage () {
   const projectSection = useRef();
@@ -202,6 +203,7 @@ export default function MainPage () {
           </div>
         </section>
       </main>
+      <MyFooter />
     </>
   );
 }

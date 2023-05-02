@@ -557,7 +557,7 @@
   margin-left: 15px;
 
   background: url(../../assets/images/arrow.svg) center/contain no-repeat;
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
 
   @media screen and (max-width: 768px) {
     min-width: calc(11px + 7 * ((100vw - 420px) / (768 - 420)));
@@ -568,5 +568,4 @@
     min-width: 11px;
     height: 10px;
   }
-
 }
