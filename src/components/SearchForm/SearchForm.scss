@@ -1,0 +1,88 @@
+@use "@/assets/css/mixins" as mixin;
+
+.search {
+  padding: 70px 0 49px;
+
+  @media screen and (max-width: 768px) {
+    padding: 86px 0 62px;
+  }
+
+  @media screen and (max-width: 420px) {
+    padding: 92px 0 51px;
+  }
+
+  &__wrapper {
+    display: flex;
+    border-bottom: 1px solid var(--color-addition-darkGray6);
+  }
+
+  &__wrapper:has(.search__input:focus-visible) {
+    border-color: var(--color-main-brightBlue);
+  }
+
+  &__input {
+    box-sizing: border-box;
+    background: url(../../assets/images/search-icon.svg) 6px top / 34px 34px no-repeat;
+    border: none;
+    padding: 0 15px 15px 58px;
+    width: 100%;
+
+    color: var(--color-main-white);
+    text-align: center;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+
+    @media screen and (max-width: 420px) {
+      height: 43px;
+      font-size: 18px;
+      line-height: 22px;
+      background: unset;
+      padding-left: 0;
+    }
+
+    &::placeholder {
+      color: var(--color-addition-gray1);
+      text-align: center;
+
+      @media screen and (max-width: 420px) {
+        text-align: left;
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__submit-button {
+    @include mixin.hover(0.8);
+
+    padding: 8px 0;
+    width: 58px;
+    align-self: flex-start;
+    border-radius: 48px;
+    border: none;
+
+    background-color: var(--color-main-brightBlue);
+
+    color: var(--color-main-white);
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-main-white);
+    }
+  }
+}
+
+.switch-wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: 420px) {
+    margin-top: 43px;
+  }
+}

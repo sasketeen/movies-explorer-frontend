@@ -14,13 +14,13 @@
 
   --color-addition-darkGray1: #2f2f2f;
   --color-addition-darkGray2: #272727; /*1*/
-  --color-addition-darkGray3: #414141;
+  --color-addition-darkGray3: #343434; /*1*/
   --color-addition-darkGray4: #222222;
   --color-addition-darkGray5: #303030; /*1*/
   --color-addition-darkGray6: #424242; /*1*/
 
   --color-addition-gray1: #8b8b8b; /*1*/
   --color-addition-gray2: #aaaaaa; /*1*/
-  --color-addition-gray3: #a0a0a0;
-  --color-addition-gray4: #c2c2c2;
+  --color-addition-gray3: #a0a0a0; /*1*/
+  --color-addition-gray4: #c2c2c2; /*1*/
 }
