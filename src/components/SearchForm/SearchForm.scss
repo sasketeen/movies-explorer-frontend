@@ -60,6 +60,7 @@
   &__submit-button {
     @include mixin.hover(0.8);
 
+    cursor: pointer;
     padding: 8px 0;
     width: 58px;
     align-self: flex-start;
