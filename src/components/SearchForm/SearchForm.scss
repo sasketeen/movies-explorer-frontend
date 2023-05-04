@@ -22,7 +22,8 @@
 
   &__input {
     box-sizing: border-box;
-    background: url(../../assets/images/search-icon.svg) 6px top / 34px 34px no-repeat;
+    background: url(../../assets/images/search-icon.svg) 6px top / 34px 34px
+      no-repeat;
     border: none;
     padding: 0 15px 15px 58px;
     width: 100%;
@@ -39,6 +40,7 @@
       line-height: 22px;
       background: unset;
       padding-left: 0;
+      text-align: left;
     }
 
     &::placeholder {

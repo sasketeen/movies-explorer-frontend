@@ -66,10 +66,12 @@
 
     &_type {
       &_saved {
-        background: var(--color-main-brightPink) url(../../assets/images/cardbutton-saved.svg) center no-repeat;
+        background: var(--color-main-brightPink)
+          url(../../assets/images/cardbutton-saved.svg) center no-repeat;
       }
       &_delete {
-        background:  url(../../assets/images/cardbutton-delete.svg) center no-repeat;
+        background: url(../../assets/images/cardbutton-delete.svg) center
+          no-repeat;
         background-color: var(--color-addition-darkGray1);
       }
     }
