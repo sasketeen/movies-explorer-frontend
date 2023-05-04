@@ -1,5 +1,13 @@
-export default function SavedMovies () {
+import MoviesList from '@/components/MoviesList/MoviesList';
+import SearchForm from '@/components/SearchForm/SearchForm';
+
+export default function SavedMovies ({ movies }) {
   return (
-    <div className="container">SavedMovies</div>
+    <div className="container">
+    <SearchForm></SearchForm>
+    <div className='movies-container'>
+      <MoviesList data={movies}></MoviesList>
+    </div>
+  </div>
   );
 }
