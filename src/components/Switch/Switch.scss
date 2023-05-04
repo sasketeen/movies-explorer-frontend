@@ -14,6 +14,10 @@
     height: 0;
     width: 0;
     opacity: 0;
+
+    &:focus-visible + .switcher__block{
+      outline: 1px solid var(--color-main-white);
+    }
   }
 
   &__block {
@@ -25,7 +29,7 @@
     background-color: var(--color-addition-darkGray3);
     border-radius: 20px;
     overflow: hidden;
-    transition: all .3s;
+    transition: background-color .3s;
     margin-right: 12px;
   }
 
