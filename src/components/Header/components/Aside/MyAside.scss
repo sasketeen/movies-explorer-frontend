@@ -5,17 +5,18 @@
     bottom: 0;
     right: -100%;
     left: unset;
-
+    visibility: hidden;
     box-sizing: border-box;
     padding: 144px 10px 46px;
     max-width: 520px;
     width: 100%;
     background-color: var(--color-main-grey);
-    transition: right 0.4s linear;
+    transition: right .4s linear, visibility .4s linear;
   }
 
   &_open {
     right: 0;
     z-index: 2;
+    visibility: visible;
   }
 }
