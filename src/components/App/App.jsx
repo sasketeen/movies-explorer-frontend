@@ -8,6 +8,7 @@ import Profile from '@/pages/Profile/Profile';
 
 import MainLayout from '@c/MainLayout/MainLayout';
 
+import movies from '@/utils/exampleMovies';
 import './App.scss';
 
 function App () {
@@ -16,11 +17,14 @@ function App () {
       <Routes>
         <Route path="/signin" Component={SignIn} />
         <Route path="/signup" Component={SignUp} />
-        <Route path="/" Component={MainLayout} >
-          <Route path='' Component={MainPage} />
-          <Route path='movies' Component={Movies} />
-          <Route path='saved-movies' Component={SavedMovies} />
-          <Route path='profile' Component={Profile} />
+        <Route path="/" Component={MainLayout}>
+          <Route path="" Component={MainPage} />
+          <Route path="movies" element={<Movies movies={movies} />} />
+          <Route
+            path="saved-movies"
+            element={<SavedMovies movies={movies} />}
+          />
+          <Route path="profile" Component={Profile} />
         </Route>
       </Routes>
     </div>
