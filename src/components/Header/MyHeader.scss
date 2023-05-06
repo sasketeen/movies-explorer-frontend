@@ -1,7 +1,10 @@
 .header {
   width: 100%;
   padding: 18px 0;
-  background-color: var(--color-main-darkBlue);
+
+  &_color_blue {
+    background-color: var(--color-main-darkBlue);
+  }
 
   @media screen and (max-width: 768px) {
     &::before {
