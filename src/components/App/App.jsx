@@ -10,6 +10,7 @@ import MainLayout from '@c/MainLayout/MainLayout';
 
 import movies from '@/utils/exampleMovies';
 import './App.scss';
+import NotFound from '../../pages/NotFound/NotFound';
 
 function App () {
   return (
@@ -26,6 +27,7 @@ function App () {
           />
           <Route path="profile" Component={Profile} />
         </Route>
+        <Route path='*' Component={NotFound} />
       </Routes>
     </div>
   );

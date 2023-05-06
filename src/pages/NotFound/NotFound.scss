@@ -1,0 +1,70 @@
+@use "@/assets/css/mixins" as mixin;
+
+.not-found {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+  &__code {
+    display: block;
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 169px;
+    text-align: center;
+
+    @media screen and (max-width: 420px) {
+      font-size: 80px;
+      line-height: 97px;
+    }
+
+  }
+
+  &__title {
+    margin: 5px 0 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    @media screen and (max-width: 420px) {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+  }
+
+  &__go-back-button {
+    @include mixin.hover();
+
+    cursor: pointer;
+    position: fixed;
+    bottom: 60px;
+    border-radius: 3px;
+
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+
+    color: var(--color-main-brightBlue);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    &:focus-visible {
+      outline: 1px solid var(--color-main-white);
+    }
+
+    @media screen and (max-width: 768px) {
+      bottom: 222px;
+    }
+
+    @media screen and (max-width: 420px) {
+      bottom: 30px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}

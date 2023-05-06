@@ -22,7 +22,7 @@ export default function Profile () {
             <div className="input-wrapper input-wrapper_for_email">
               <input type="email" id="input-email" className="profile__input" />
               <label htmlFor="input-email" className="profile__input-label">
-                Почта
+              Email
               </label>
             </div>
           </div>
