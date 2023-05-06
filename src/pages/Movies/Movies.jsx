@@ -1,13 +1,15 @@
 import MoviesList from '@/components/MoviesList/MoviesList';
 import SearchForm from '@/components/SearchForm/SearchForm';
 
+import './Movies.scss';
+
 export default function Movies ({ movies }) {
   return (
-    <div className="container">
+    <section className="container">
       <SearchForm></SearchForm>
       <div className='movies-container'>
         <MoviesList data={movies}></MoviesList>
       </div>
-    </div>
+    </section>
   );
 }

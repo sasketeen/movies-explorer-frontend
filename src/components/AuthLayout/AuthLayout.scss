@@ -6,6 +6,10 @@
   width: 100%;
   max-height: 560px;
   height: 100%;
+
+  @media screen and (max-width: 420px) {
+    max-height: unset;
+  }
 }
 
 .auth-layout {
@@ -38,8 +42,9 @@
   }
 
   @media screen and (max-width: 420px) {
+
     &__logo-wrapper {
-      margin: auto;
+      margin: 26px auto 0;
     }
     &__title {
       margin: 50px 0 80px;
