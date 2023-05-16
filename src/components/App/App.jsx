@@ -8,7 +8,6 @@ import Profile from '@/pages/Profile/Profile';
 
 import MainLayout from '@c/MainLayout/MainLayout';
 
-import movies from '@/utils/exampleMovies';
 import './App.scss';
 import NotFound from '../../pages/NotFound/NotFound';
 
@@ -20,10 +19,10 @@ function App () {
         <Route path="/signup" Component={SignUp} />
         <Route path="/" Component={MainLayout}>
           <Route path="" Component={MainPage} />
-          <Route path="movies" element={<Movies movies={movies} />} />
+          <Route path="movies" element={<Movies />} />
           <Route
             path="saved-movies"
-            element={<SavedMovies movies={movies} />}
+            element={<SavedMovies />}
           />
           <Route path="profile" Component={Profile} />
         </Route>

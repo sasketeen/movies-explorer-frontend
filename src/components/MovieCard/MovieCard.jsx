@@ -5,7 +5,7 @@ import './MovieCard.scss';
 export default function MovieCard ({
   nameRU,
   trailerLink,
-  thumbnail,
+  image,
   duration,
   isSaved
 }) {
@@ -25,7 +25,7 @@ export default function MovieCard ({
         className="card__link"
       >
         <img
-          src={thumbnail}
+          src={image}
           alt={`Заставка трейлера к фильму ${nameRU}`}
           className="card__image"
         />

@@ -12,7 +12,7 @@ export default function useValidation () {
   const handleValidation = ({ target }) => {
     const { name } = target;
     setErrors({ ...errors, [name]: target.validationMessage });
-    setValidity(target.closest('.form').checkValidity());
+    setValidity(target.closest('form').checkValidity());
   };
 
   return [handleValidation, errors, validity];
