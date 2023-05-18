@@ -1,7 +1,15 @@
 export const movieServerLink = 'https://api.nomoreparties.co';
+export const mainServerLink = 'https://sasketeen.diplom.nomoredomains.monster';
 
 export const MOVIES_API_CONFIG = {
   serverLink: `${movieServerLink}/beatfilm-movies`,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+export const MAIN_API_CONFIG = {
+  serverLink: `${mainServerLink}/api`,
   headers: {
     'Content-Type': 'application/json'
   }

@@ -6,7 +6,6 @@ import MovieCard from '../MovieCard/MovieCard';
 import './MoviesList.scss';
 
 export default function MoviesList ({ data }) {
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [moviesLength, setMoviesLength] = useState(window.innerWidth);
 
   const { pathname } = useLocation();

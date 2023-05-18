@@ -9,9 +9,13 @@ export default function AuthLayout ({
   pageTitle,
   submitButtonTitle,
   children,
+  serverError,
   sublinkParagraph,
   sublinkTitle,
-  sublinkPath
+  sublinkPath,
+  onSubmit,
+  isLoading,
+  validity
 }) {
   return (
     <section className="auth-layout">
@@ -22,9 +26,12 @@ export default function AuthLayout ({
         </div>
 
         <h1 className="auth-layout__title">{pageTitle}</h1>
-        <form className="auth-layout__form">
+        <form className="auth-layout__form" onSubmit={onSubmit} noValidate>
           <div>{children}</div>
-          <SubmitButton>{submitButtonTitle}</SubmitButton>
+          <div>
+            {serverError && <span className='auth-layout__server-error'>{serverError}</span>}
+            <SubmitButton disabled={isLoading || !validity}>{submitButtonTitle}</SubmitButton>
+          </div>
         </form>
 
         <p className="auth-layout__sublink-paragraph">

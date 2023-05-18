@@ -41,6 +41,17 @@
     color: var(--color-addition-gray1);
   }
 
+  &__server-error {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+
+    color: var(--color-main-brightPink);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
   @media screen and (max-width: 420px) {
 
     &__logo-wrapper {

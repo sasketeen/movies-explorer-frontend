@@ -20,12 +20,6 @@ export default function Movies () {
     if (results) setResults(results);
   }, []);
 
-  // useEffect(() => {
-  //   setResults(results.map(movie => {
-
-  //   }));
-  // }, [results]);
-
   const handleSubmit = (searchParams) => {
     if (!searchParams.name) {
       setMessage(messages.emptyInput);
