@@ -1,22 +1,30 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import Switch from '../Switch/Switch';
 import './SearchForm.scss';
 
 export default function SearchForm ({ handleSubmit }) {
+  const { pathname } = useLocation();
+  const isSavedMoviePage = pathname === '/saved-movies';
+
   const { values, setValues, handleChange } = useForm({
     name: '',
     isShortMovies: false
   });
 
   useEffect(() => {
-    const searchParams = JSON.parse(localStorage.getItem('searchParams'));
-    if (searchParams) setValues(searchParams);
+    if (!isSavedMoviePage) {
+      const searchParams = JSON.parse(localStorage.getItem('searchParams'));
+      if (searchParams) setValues(searchParams);
+    }
   }, []);
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    localStorage.setItem('searchParams', JSON.stringify(values));
+    if (!isSavedMoviePage) {
+      localStorage.setItem('searchParams', JSON.stringify(values));
+    }
     handleSubmit(values);
   };
 

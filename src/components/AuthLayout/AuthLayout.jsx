@@ -4,12 +4,14 @@ import LogoLink from '../LogoLink/LogoLink';
 import SubmitButton from '../SubmitButton/SubmitButton';
 
 import './AuthLayout.scss';
+import { useEffect } from 'react';
 
 export default function AuthLayout ({
   pageTitle,
   submitButtonTitle,
   children,
   serverError,
+  setServerError,
   sublinkParagraph,
   sublinkTitle,
   sublinkPath,
@@ -17,6 +19,10 @@ export default function AuthLayout ({
   isLoading,
   validity
 }) {
+  useEffect(() => {
+    setServerError('');
+  }, []);
+
   return (
     <section className="auth-layout">
       <div className="auth-wrapper">

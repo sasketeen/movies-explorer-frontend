@@ -1,17 +1,20 @@
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
+import { useContext, useEffect, useState } from 'react';
+import CurrentUserContext from '@/contexts/currentUserContext';
 import MovieCard from '../MovieCard/MovieCard';
+import MainApi from '@/utils/MainApi';
 
 import './MoviesList.scss';
 
 export default function MoviesList ({ data }) {
-  const [moviesLength, setMoviesLength] = useState(window.innerWidth);
+  const { savedMovies, setSavedMovies } = useContext(CurrentUserContext);
+  const [moviesLength, setMoviesLength] = useState(0);
 
   const { pathname } = useLocation();
   const isSavedMoviePage = pathname === '/saved-movies';
 
   useEffect(() => {
+    handleChangeWidthScreen();
     window.addEventListener('resize', handleChangeWidthScreen);
     return () => {
       window.removeEventListener('resize', handleChangeWidthScreen);
@@ -35,13 +38,41 @@ export default function MoviesList ({ data }) {
     }
   };
 
+  const isSaved = (movie) => {
+    if (isSavedMoviePage) {
+      return true;
+    } else {
+      return savedMovies?.some((savedMovie) => {
+        return savedMovie.movieId === movie.id;
+      });
+    }
+  };
+
+  const handleSaveMovie = (movie) => {
+    MainApi.saveMovie(movie)
+      .then((movie) => {
+        setSavedMovies([...savedMovies, movie]);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleDeleteMovie = (id) => {
+    MainApi.deleteMovie(id)
+      .then((deletedMovie) => {
+        setSavedMovies(savedMovies.filter((savedMovie) => {
+          return !(savedMovie._id === deletedMovie._id);
+        }));
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <ul className='movies-list'>
-        {data.slice(0, moviesLength).map((movie) => {
+        {(isSavedMoviePage ? data : data.slice(0, moviesLength)).map((movie) => {
           return (
-            <li key={movie.id} className='movies-list__item'>
-              <MovieCard {...movie} />
+            <li key={isSavedMoviePage ? movie._id : movie.id} className='movies-list__item'>
+              <MovieCard data={movie} isSaved={isSaved(movie)} onSave={handleSaveMovie} onDel={handleDeleteMovie}/>
             </li>
           );
         })}

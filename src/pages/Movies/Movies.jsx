@@ -13,7 +13,7 @@ import './Movies.scss';
 export default function Movies () {
   const [message, setMessage] = useState('');
   const [results, setResults] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const results = JSON.parse(localStorage.getItem('results'));
@@ -26,7 +26,7 @@ export default function Movies () {
       localStorage.setItem('results', JSON.stringify([]));
       return;
     }
-    setIsFetching(true);
+    setIsLoading(true);
     setMessage('');
     moviesApi
       .getMovies()
@@ -35,7 +35,8 @@ export default function Movies () {
           return {
             ...item,
             image: `${movieServerLink}/${item.image.url}`,
-            thumbnail: `${movieServerLink}/${item.image.formats.thumbnail.url}`
+            thumbnail: `${movieServerLink}/${item.image.formats.thumbnail.url}`,
+            movieId: item.id
           };
         });
         const results = filterMovies({ filterParams: searchParams, movies });
@@ -44,11 +45,11 @@ export default function Movies () {
         if (!results.length) setMessage(messages.noResults);
       })
       .catch(() => setMessage(messages.fetchError))
-      .finally(() => setIsFetching(false));
+      .finally(() => setIsLoading(false));
   };
 
   const getContent = () => {
-    if (isFetching) {
+    if (isLoading) {
       return <Preloader />;
     } else if (message) {
       return <p className="results-message">{message}</p>;
@@ -59,7 +60,7 @@ export default function Movies () {
 
   return (
     <section className="container">
-      <SearchForm handleSubmit={handleSubmit}></SearchForm>
+      <SearchForm handleSubmit={handleSubmit} />
       <div className="movies-container">{getContent()}</div>
     </section>
   );

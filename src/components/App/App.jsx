@@ -54,9 +54,11 @@ function App () {
       Promise.allSettled([MainApi.getUser(), MainApi.getSavedMovies()])
         .then(([user, savedMovies]) => {
           setCurrentUser(user.value);
-          setSavedMovies(savedMovies.value);
+          setSavedMovies(savedMovies.value || []);
         })
-        .catch((err) => console.log(getErrorText(err)));
+        .catch((err) => {
+          console.log(getErrorText(err));
+        });
     }
   }, [isUserSignIn]);
 
@@ -78,10 +80,10 @@ function App () {
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         setIsUserSignIn(true);
+        navigate('/');
       })
       .catch((err) => setServerError(getErrorText(err)))
       .finally(() => {
-        navigate('/');
         setIsLoading(false);
       });
   };
@@ -97,7 +99,7 @@ function App () {
 
   return (
     <CurrentUserContext.Provider
-      value={{ currentUser, isUserSignIn }}
+      value={{ currentUser, isUserSignIn, savedMovies, setSavedMovies }}
     >
       <div className="app">
         {isAppLoading
@@ -115,6 +117,7 @@ function App () {
                   handleSubmit={handleSignIn}
                   isLoading={isLoading}
                   serverError={serverError}
+                  setServerError={setServerError}
                 />
               }
             />
@@ -125,6 +128,7 @@ function App () {
                   handleSubmit={handleSignUp}
                   isLoading={isLoading}
                   serverError={serverError}
+                  setServerError={setServerError}
                 />
               }
             />
@@ -141,7 +145,12 @@ function App () {
               />
               <Route
                 path="profile"
-                element={<ProtectedRoute element={Profile} handleSignOut={handleSignOut}/>}
+                element={
+                  <ProtectedRoute
+                    element={Profile}
+                    handleSignOut={handleSignOut}
+                  />
+                }
               />
             </Route>
             <Route path="*" Component={NotFound} />

@@ -1,5 +1,6 @@
 export const movieServerLink = 'https://api.nomoreparties.co';
-export const mainServerLink = 'https://sasketeen.diplom.nomoredomains.monster';
+// export const mainServerLink = 'http://localhost:3001/api';
+export const mainServerLink = 'https://sasketeen.diplom.nomoredomains.monster/api';
 
 export const MOVIES_API_CONFIG = {
   serverLink: `${movieServerLink}/beatfilm-movies`,
@@ -9,7 +10,7 @@ export const MOVIES_API_CONFIG = {
 };
 
 export const MAIN_API_CONFIG = {
-  serverLink: `${mainServerLink}/api`,
+  serverLink: `${mainServerLink}`,
   headers: {
     'Content-Type': 'application/json'
   }
