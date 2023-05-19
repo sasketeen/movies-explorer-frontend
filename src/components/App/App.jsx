@@ -43,7 +43,7 @@ function App () {
         })
         .finally(() => setIsAppLoading(false));
     } else {
-      handleSignOut();
+      setIsUserSignIn(false);
       setIsAppLoading(false);
     }
   }, []);
