@@ -6,6 +6,7 @@ import CurrentUserContext from '@/contexts/currentUserContext';
 import SubmitButton from '@/components/SubmitButton/SubmitButton';
 import './Profile.scss';
 import getErrorText from '../../utils/getErrorText';
+import { namePattern } from '../../utils/constants';
 
 export default function Profile ({ handleSignOut }) {
   const { currentUser } = useContext(CurrentUserContext);
@@ -18,6 +19,7 @@ export default function Profile ({ handleSignOut }) {
   const [error, setError] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -30,10 +32,12 @@ export default function Profile ({ handleSignOut }) {
     MainApi.editUserInfo(values)
       .then((data) => {
         setError('');
+        setIsSuccess(true);
         setUserData(data);
         setIsEditing(false);
       })
       .catch((err) => {
+        setIsSuccess(false);
         setError(getErrorText(err));
       })
       .finally(() => setIsLoading(false));
@@ -53,9 +57,9 @@ export default function Profile ({ handleSignOut }) {
                 id="input-name"
                 className="profile__input"
                 name='name'
+                pattern={namePattern}
                 minLength={2}
                 maxLength={30}
-                required
                 readOnly={!isEditing}
                 value={values.name}
                 onChange={(evt) => {
@@ -73,7 +77,6 @@ export default function Profile ({ handleSignOut }) {
                 id="input-email"
                 className="profile__input"
                 name='email'
-                required
                 readOnly={!isEditing}
                 value={values.email}
                 onChange={(evt) => {
@@ -89,12 +92,13 @@ export default function Profile ({ handleSignOut }) {
 
           {isEditing && (
             <div>
-              <span className="profile__error-span">{error}</span>
+              <span className="profile__error-span">{errors.name || errors.email || error}</span>
               <SubmitButton disabled={isDisabled}>Сохранить</SubmitButton>
             </div>
           )}
         </form>
 
+        {(!isEditing && isSuccess) && (<span className="profile__success-span">Данные успешно обновлены</span>)}
         {!isEditing && (
           <div className="profile__subaction">
             <button

@@ -3,7 +3,6 @@
   gap: 20px;
 
   @media screen and (max-width: 768px) {
-    overflow-y: auto;
     flex-direction: column;
     align-items: center;
     gap: 28px;

@@ -2,6 +2,7 @@ import AuthLayout from '@/components/AuthLayout/AuthLayout';
 import InputGroup from '@/components/InputGroup/InputGroup';
 import useForm from '@/hooks/useForm';
 import useValidation from '@/hooks/useValidation';
+import { namePattern } from '../../../utils/constants';
 
 export default function SignUp ({ handleSubmit, ...props }) {
   const [handleValidation, errors, validity] = useValidation();
@@ -33,6 +34,9 @@ export default function SignUp ({ handleSubmit, ...props }) {
           label="Имя"
           type="text"
           name="name"
+          min-length={2}
+          max-length={30}
+          pattern={namePattern}
           required
           value={values.name}
           error={errors.name}

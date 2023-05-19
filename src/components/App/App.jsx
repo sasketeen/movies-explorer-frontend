@@ -80,7 +80,7 @@ function App () {
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         setIsUserSignIn(true);
-        navigate('/');
+        navigate('/movies');
       })
       .catch((err) => setServerError(getErrorText(err)))
       .finally(() => {

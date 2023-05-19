@@ -104,6 +104,15 @@
     line-height: 13px;
   }
 
+  &__success-span {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--color-main-cyan);
+    text-align: center;
+    font-size: 11px;
+    line-height: 13px;
+  }
+
   &__button {
     @include mixin.hover();
 
