@@ -20,12 +20,12 @@ export default function SavedMovies () {
   }, [savedMovies]);
 
   const handleSubmit = (searchParams) => {
-    setFilterParams(searchParams);
     setMessage('');
-    if (!searchParams.name) {
-      setResults(savedMovies);
-      return;
-    }
+    setFilterParams(searchParams);
+    // if (!searchParams.name) {
+    //   setResults(savedMovies);
+    //   return;
+    // }
     const filteredMovies = filterMovies({ filterParams: searchParams, movies: savedMovies });
     setResults(filteredMovies);
     if (!filteredMovies.length) setMessage(messages.noResults);

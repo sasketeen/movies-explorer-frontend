@@ -2,10 +2,10 @@ import AuthLayout from '@/components/AuthLayout/AuthLayout';
 import InputGroup from '@/components/InputGroup/InputGroup';
 import useForm from '@/hooks/useForm';
 import useValidation from '@/hooks/useValidation';
-import { namePattern } from '../../../utils/constants';
+import { emailRegexp, namePattern } from '../../../utils/constants';
 
 export default function SignUp ({ handleSubmit, ...props }) {
-  const [handleValidation, errors, validity] = useValidation();
+  const [handleValidation, errors, validity, setErrors] = useValidation();
   const { values, handleChange } = useForm({
     name: '',
     email: '',
@@ -53,9 +53,13 @@ export default function SignUp ({ handleSubmit, ...props }) {
           required
           value={values.email}
           error={errors.email}
+          pattern={emailRegexp}
           onChange={(evt) => {
             handleChange(evt);
             handleValidation(evt);
+            if (evt.target.validity.patternMismatch) {
+              setErrors({ ...errors, email: 'Неверный формат email' });
+            }
           }}
         />
         <InputGroup

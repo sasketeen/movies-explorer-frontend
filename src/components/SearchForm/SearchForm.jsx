@@ -30,6 +30,10 @@ export default function SearchForm ({ handleSubmit }) {
 
   const handleCheckbox = (evt) => {
     setValues({ ...values, isShortMovies: evt.target.checked });
+    if (!isSavedMoviePage) {
+      localStorage.setItem('searchParams', JSON.stringify({ ...values, isShortMovies: evt.target.checked }));
+    }
+    handleSubmit({ ...values, isShortMovies: evt.target.checked });
   };
 
   return (

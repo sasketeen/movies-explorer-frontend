@@ -1,13 +1,16 @@
 import { maxShortFilmDuration } from './constants';
 
 export default function filterMovies ({ filterParams, movies }) {
+  console.log(filterParams.isShortMovies);
   if (filterParams.isShortMovies) {
-    return movies.filter((movie) => {
-      return checkName(movie.nameRU, filterParams.name) && checkDuration(movie.duration, maxShortFilmDuration);
+    movies = movies.filter((movie) => {
+      return checkDuration(movie.duration, maxShortFilmDuration);
     });
-  } else {
-    return movies.filter((movie) => checkName(movie.nameRU, filterParams.name));
+  }
+  if (filterParams.name) {
+    movies = movies.filter((movie) => checkName(movie.nameRU, filterParams.name));
   };
+  return movies;
 }
 
 const checkName = (movieName, searchName) => {

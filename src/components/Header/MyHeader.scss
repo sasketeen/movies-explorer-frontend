@@ -22,12 +22,14 @@
       opacity: 0;
       z-index: -10;
       transition: opacity 0.4s linear;
+      visibility: hidden;
     }
 
     &_menu-visible {
       &::before {
         z-index: 0;
         opacity: 0.3;
+        visibility: visible;
       }
     }
   }

@@ -15,5 +15,5 @@ export default function useValidation () {
     setValidity(target.closest('form').checkValidity());
   };
 
-  return [handleValidation, errors, validity];
+  return [handleValidation, errors, validity, setErrors];
 }

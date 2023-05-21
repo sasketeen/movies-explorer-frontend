@@ -14,6 +14,7 @@ export default function Movies () {
   const [message, setMessage] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [allMovies, setAllMovies] = useState(false);
 
   useEffect(() => {
     const results = JSON.parse(localStorage.getItem('results'));
@@ -21,31 +22,40 @@ export default function Movies () {
   }, []);
 
   const handleSubmit = (searchParams) => {
+    setMessage('');
     if (!searchParams.name) {
       setMessage(messages.emptyInput);
       localStorage.setItem('results', JSON.stringify([]));
       return;
     }
-    setIsLoading(true);
-    setMessage('');
-    moviesApi
-      .getMovies()
-      .then((res) => {
-        const movies = res.map((item) => {
-          return {
-            ...item,
-            image: `${movieServerLink}/${item.image.url}`,
-            thumbnail: `${movieServerLink}/${item.image.formats.thumbnail.url}`,
-            movieId: item.id
-          };
-        });
-        const results = filterMovies({ filterParams: searchParams, movies });
-        setResults(results);
-        localStorage.setItem('results', JSON.stringify(results));
-        if (!results.length) setMessage(messages.noResults);
-      })
-      .catch(() => setMessage(messages.fetchError))
-      .finally(() => setIsLoading(false));
+    if (allMovies) {
+      const results = filterMovies({ filterParams: searchParams, movies: allMovies });
+      setResults(results);
+      localStorage.setItem('results', JSON.stringify(results));
+      if (!results.length) setMessage(messages.noResults);
+    } else {
+      setIsLoading(true);
+      setMessage('');
+      moviesApi
+        .getMovies()
+        .then((res) => {
+          const movies = res.map((item) => {
+            return {
+              ...item,
+              image: `${movieServerLink}/${item.image.url}`,
+              thumbnail: `${movieServerLink}/${item.image.formats.thumbnail.url}`,
+              movieId: item.id
+            };
+          });
+          const results = filterMovies({ filterParams: searchParams, movies });
+          setResults(results);
+          setAllMovies(movies);
+          localStorage.setItem('results', JSON.stringify(results));
+          if (!results.length) setMessage(messages.noResults);
+        })
+        .catch(() => setMessage(messages.fetchError))
+        .finally(() => setIsLoading(false));
+    }
   };
 
   const getContent = () => {
