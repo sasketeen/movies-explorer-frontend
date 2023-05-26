@@ -1,0 +1,41 @@
+@use "./mixins" as mixin;
+
+.body {
+  background-color: var(--color-main-grey);
+  color: var(--color-main-white);
+  font-family: "Inter", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.link {
+  @include mixin.hover();
+
+  color: var(--color-main-brightBlue);
+  text-decoration: none;
+  border-radius: 3px;
+
+  &:focus-visible {
+    outline: 1px solid var(--color-main-white);
+  }
+}
+
+.container {
+  max-width: 1140px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 70px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1280px) {
+    padding: 0 calc(30px + 40 * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 calc(14px + 16 * ((100vw - 420px) / (768 - 420)));
+  }
+
+  @media screen and (max-width: 420px) {
+    padding: 0 14px;
+  }
+}

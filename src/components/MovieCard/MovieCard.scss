@@ -1,0 +1,103 @@
+@use "@/assets/css/mixins" as mixin;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+
+  background-color: var(--color-addition-darkGray4);
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+
+
+  &__movie-info {
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: baseline;
+
+    @media screen and (max-width: 420px) {
+      padding: 14px;
+    }
+  }
+
+  &__movie-name {
+    margin: 0;
+
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @media screen and (max-width: 420px) {
+      font-size: 12px;
+    }
+  }
+
+  &__movie-duration {
+    color: var(--color-addition-gray1);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    margin-left: 10px;
+
+    @media screen and (max-width: 420px) {
+      font-size: 10px;
+    }
+  }
+
+  &__link {
+    height: 100%;
+    &:focus-visible {
+      display: block;
+      outline: 1.5px solid var(--color-main-white);
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  &__button {
+    @include mixin.hover(0.8);
+
+    display: block;
+    cursor: pointer;
+    margin: 18px auto;
+    min-height: 29px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+
+    background-color: var(--color-addition-darkGray1);
+
+    color: var(--color-main-white);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 11px;
+
+    @media screen and (max-width: 420px) {
+      margin: 14px auto;
+    }
+
+    &:focus-visible {
+      outline: 1.5px solid var(--color-main-white);
+    }
+
+    &_type {
+      &_saved {
+        background: var(--color-main-brightPink)
+          url(../../assets/images/cardbutton-saved.svg) center no-repeat;
+      }
+      &_delete {
+        background: url(../../assets/images/cardbutton-delete.svg) center
+          no-repeat;
+        background-color: var(--color-addition-darkGray1);
+      }
+    }
+  }
+}
